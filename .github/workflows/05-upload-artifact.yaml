@@ -1,12 +1,12 @@
-name: 04 Generate Report Workflow
+name: 05 Upload Artifact Workflow
 
 on:
   push:
     branches:
-      - '!main'
+      - main
 
 jobs:
-  generate-report:
+  upload-artifact:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,8 +18,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: 리포트 파일 생성
+      - name: 리포트 생성
         run: python generate_report.py
 
-      - name: 생성 결과 확인
-        run: cat report.txt
+      - name: 리포트 파일 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-report
+          path: report.txt
