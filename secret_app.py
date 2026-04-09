@@ -8,7 +8,7 @@ if secret_value:
 else:
     print("SECRET_MESSAGE 값 없음")
 
-    if secret_value2:
+if secret_value2:
     print("SECRET_MESSAGE2 값 읽기 성공")
 else:
     print("SECRET_MESSAGE2 값 없음")
